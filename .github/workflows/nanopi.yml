@@ -66,8 +66,8 @@ jobs:
           mkdir friendlywrt
           cd friendlywrt
           git init
-          git config user.email abc@abc.com
-          git config user.name abc
+          git config user.email firefly88518@live.com
+          git config user.name kimking666
           git remote add origin https://github.com/friendlyarm/friendlywrt.git
           git remote add upstream https://github.com/openwrt/openwrt.git
           git pull origin master-v18.06.1
