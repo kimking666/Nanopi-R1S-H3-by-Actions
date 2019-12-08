@@ -57,7 +57,7 @@ jobs:
         run: |
           mkdir friendlywrt-H3
           cd friendlywrt-H3
-          repo init -u https://github.com/friendlyarm/friendlywrt_manifests -b master -m H3.xml --repo-url=https://github.com/friendlyarm/repo  --no-clone-bundle
+          repo init -u https://github.com/friendlyarm/friendlywrt_manifests -b master -m h3.xml --repo-url=https://github.com/friendlyarm/repo  --no-clone-bundle
           repo sync -c  --no-clone-bundle
       
       - name: Merge UpStearm OpenWrt
