@@ -95,7 +95,7 @@ jobs:
       - name: Costom Configure File
         run: |
           rm -f ./.config*
-          wget https://raw.githubusercontent.com/kimking666/Nanopi-R1S-H3-by-Actions/master/r1s-H3-config
+          wget https://raw.githubusercontent.com/kimking666/Nanopi-R1S-H3-by-Actions/master/r1s-h3-config
           cp r1s-H3-config .config
       - name: Build OpenWrt
         run: |
