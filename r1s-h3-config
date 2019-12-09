@@ -4,6 +4,7 @@
 #
 CONFIG_MODULES=y
 CONFIG_HAVE_DOT_CONFIG=y
+CONFIG_DEFAULT_TARGET_sunxi_cortexa7=y
 CONFIG_TARGET_sunxi=y
 # CONFIG_TARGET_apm821xx is not set
 # CONFIG_TARGET_ath25 is not set
@@ -44,13 +45,14 @@ CONFIG_TARGET_sunxi=y
 # CONFIG_TARGET_rockchip_rk3399 is not set
 # CONFIG_TARGET_x86 is not set
 # CONFIG_TARGET_sunxi_cortexa8 is not set
-# CONFIG_TARGET_sunxi_cortexa53 is not set
 CONFIG_TARGET_sunxi_cortexa7=y
-# CONFIG_TARGET_MULTI_PROFILE is not set
+# CONFIG_TARGET_sunxi_cortexa53 is not set
+CONFIG_TARGET_MULTI_PROFILE=y
+# CONFIG_TARGET_sunxi_cortexa7_Default is not set
 # CONFIG_TARGET_sunxi_cortexa7_DEVICE_sun7i-a20-cubieboard2 is not set
 # CONFIG_TARGET_sunxi_cortexa7_DEVICE_sun7i-a20-cubietruck is not set
 # CONFIG_TARGET_sunxi_cortexa7_DEVICE_sun8i-h3-nanopi-neo is not set
-CONFIG_TARGET_sunxi_cortexa7_DEVICE_sun8i-h3-nanopi-m1-plus=y
+# CONFIG_TARGET_sunxi_cortexa7_DEVICE_sun8i-h3-nanopi-m1-plus is not set
 # CONFIG_TARGET_sunxi_cortexa7_DEVICE_sun7i-a20-lamobo-r1 is not set
 # CONFIG_TARGET_sunxi_cortexa7_DEVICE_sun7i-a20-bananapi is not set
 # CONFIG_TARGET_sunxi_cortexa7_DEVICE_sun7i-a20-bananapro is not set
@@ -64,19 +66,38 @@ CONFIG_TARGET_sunxi_cortexa7_DEVICE_sun8i-h3-nanopi-m1-plus=y
 # CONFIG_TARGET_sunxi_cortexa7_DEVICE_sun8i-h3-orangepi-pc is not set
 # CONFIG_TARGET_sunxi_cortexa7_DEVICE_sun8i-h3-orangepi-plus is not set
 # CONFIG_TARGET_sunxi_cortexa7_DEVICE_sun8i-h2-plus-orangepi-r1 is not set
-# CONFIG_TARGET_sunxi_cortexa7_Default is not set
-# CONFIG_TARGET_sunxi_cortexa53_DEVICE_sun50i-h5-nanopi-neo-plus2 is not set
-# CONFIG_TARGET_sunxi_cortexa53_DEVICE_sun50i-a64-pine64-plus is not set
-# CONFIG_TARGET_sunxi_cortexa53_DEVICE_sun50i-a64-sopine-baseboard is not set
-# CONFIG_TARGET_sunxi_cortexa53_DEVICE_sun50i-h5-orangepi-zero-plus is not set
+
+#
+# Target Devices
+#
+CONFIG_TARGET_ALL_PROFILES=y
+CONFIG_TARGET_PER_DEVICE_ROOTFS=y
+# CONFIG_TARGET_DEVICE_sunxi_cortexa7_DEVICE_sun7i-a20-cubieboard2 is not set
+# CONFIG_TARGET_DEVICE_sunxi_cortexa7_DEVICE_sun7i-a20-cubietruck is not set
+CONFIG_TARGET_DEVICE_sunxi_cortexa7_DEVICE_sun8i-h3-nanopi-m1-plus=y
+CONFIG_TARGET_DEVICE_PACKAGES_sunxi_cortexa7_DEVICE_sun8i-h3-nanopi-m1-plus=""
+CONFIG_TARGET_DEVICE_sunxi_cortexa7_DEVICE_sun8i-h3-nanopi-neo=y
+CONFIG_TARGET_DEVICE_PACKAGES_sunxi_cortexa7_DEVICE_sun8i-h3-nanopi-neo=""
+# CONFIG_TARGET_DEVICE_sunxi_cortexa7_DEVICE_sun7i-a20-lamobo-r1 is not set
+# CONFIG_TARGET_DEVICE_sunxi_cortexa7_DEVICE_sun7i-a20-bananapi is not set
+# CONFIG_TARGET_DEVICE_sunxi_cortexa7_DEVICE_sun7i-a20-bananapro is not set
+# CONFIG_TARGET_DEVICE_sunxi_cortexa7_DEVICE_sun7i-a20-pcduino3 is not set
+# CONFIG_TARGET_DEVICE_sunxi_cortexa7_DEVICE_sun6i-a31-m9 is not set
+# CONFIG_TARGET_DEVICE_sunxi_cortexa7_DEVICE_sun7i-a20-olinuxino-micro is not set
+# CONFIG_TARGET_DEVICE_sunxi_cortexa7_DEVICE_sun7i-a20-olinuxino-lime is not set
+# CONFIG_TARGET_DEVICE_sunxi_cortexa7_DEVICE_sun7i-a20-olinuxino-lime2 is not set
+# CONFIG_TARGET_DEVICE_sunxi_cortexa7_DEVICE_sun7i-a20-olinuxino-lime2-emmc is not set
+# CONFIG_TARGET_DEVICE_sunxi_cortexa7_DEVICE_sun8i-h3-orangepi-2 is not set
+# CONFIG_TARGET_DEVICE_sunxi_cortexa7_DEVICE_sun8i-h3-orangepi-pc is not set
+# CONFIG_TARGET_DEVICE_sunxi_cortexa7_DEVICE_sun8i-h3-orangepi-plus is not set
+# CONFIG_TARGET_DEVICE_sunxi_cortexa7_DEVICE_sun8i-h2-plus-orangepi-r1 is not set
 CONFIG_HAS_SUBTARGETS=y
 CONFIG_HAS_DEVICES=y
 CONFIG_TARGET_BOARD="sunxi"
 CONFIG_TARGET_SUBTARGET="cortexa7"
-CONFIG_TARGET_PROFILE="DEVICE_sun8i-h3-nanopi-m1-plus"
 CONFIG_TARGET_ARCH_PACKAGES="arm_cortex-a7_neon-vfpv4"
-CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mcpu=cortex-a7"
-CONFIG_CPU_TYPE="cortex-a7+neon"
+CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mcpu=cortex-a7 -mfpu=neon-vfpv4"
+CONFIG_CPU_TYPE="cortex-a7+neon-vfpv4"
 CONFIG_LINUX_4_14=y
 CONFIG_DEFAULT_base-files=y
 CONFIG_DEFAULT_brcmfmac-firmware-43430-sdio=y
@@ -118,10 +139,8 @@ CONFIG_RTC_SUPPORT=y
 CONFIG_USES_DEVICETREE=y
 CONFIG_USES_SQUASHFS=y
 CONFIG_USES_EXT4=y
-CONFIG_ARCH_64BIT=y
-# CONFIG_aarch64 is not set
 CONFIG_arm_v7=y
-CONFIG_ARCH="aarch32"
+CONFIG_ARCH="arm"
 
 #
 # Target Images
@@ -3260,6 +3279,7 @@ CONFIG_PACKAGE_luci-app-samba=y
 CONFIG_PACKAGE_luci-app-ssr-plus=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun is not set
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server is not set
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
@@ -4424,6 +4444,7 @@ CONFIG_PACKAGE_shadowsocksr-libev-ssr-local=y
 # CONFIG_PACKAGE_tor-geoip is not set
 # CONFIG_PACKAGE_tor-resolve is not set
 # CONFIG_PACKAGE_travelmate is not set
+CONFIG_PACKAGE_trojan=y
 # CONFIG_PACKAGE_u2pnpd is not set
 CONFIG_PACKAGE_uclient-fetch=y
 # CONFIG_PACKAGE_udpxy is not set
