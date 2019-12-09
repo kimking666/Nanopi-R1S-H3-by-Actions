@@ -96,7 +96,7 @@ jobs:
         run: |
           rm -f ./.config*
           wget https://raw.githubusercontent.com/kimking666/Nanopi-R1S-H3-by-Actions/master/r1s-h3-config
-          cp r1s-H3-config .config
+          cp r1s-h3-config .config
       - name: Build OpenWrt
         run: |
           cd /home/runner/work/Nanopi-R1S-H3-by-Actions/Nanopi-R1S-H3-by-Actions/friendlywrt-H3
